@@ -1,0 +1,46 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+          <!--Websitentitel und Logo-->
+            <a routerLink="/mainpage" class="navbar-brand"> 
+              Gläserne Fußabdruck 
+              <img src="assets/logo.png" class=" d-inline-block align-top text-wrap" width="30px" height="30px">
+            </a>
+          
+          <!--Button für kollabierende globale Navigation-->
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#headerGlobalNavigation" aria-controls="headerGlobalNavigation" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
+            </button> 
+
+      <!-- Kollabierendes Menü und Links -->
+      <div class="collapse navbar-collapse" id="headerGlobalNavigation">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/overview" class="nav-link active">CO<sub>2</sub> Emissionen Vergleich</a>
+          </li>
+
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/country" class="nav-link">CO<sub>2</sub> Emissionen Länder</a>
+          </li>
+
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/company" class="nav-link">CO<sub>2</sub> Emission Firmen</a>
+          </li>
+
+          <li class="nav-item" routerLinkActive="active">
+          </li>
+
+          <!--Für externe Links-->
+          <li class="nav-item dropdown">
+            <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-target="#dropdown-menu" aria-controls="navbarDropdownMenuLink" aria-expanded="false">
+              Externe Links
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="https://www.umweltbundesamt.de/themen/klima-energie/klimawandel/haeufige-fragen-klimawandel#klima">Umweltbundesamt</a>
+              <a class="dropdown-item" href="https://www.wwf.de/themen-projekte/klimaschutz/klimawandel">WWF</a>
+            </div>
+        </ul>
+      </div>  <!-- Ende des kollabierenden Menüs und Links -->
+    </div> <!-- Ende des Containers-->
+</nav>
+
+

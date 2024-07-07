@@ -1,0 +1,34 @@
+/*Damit der Footer die selbe Hintergrundfarbe wie der Header hat*/
+.bg{
+    background-color: #96e1a1;
+}
+
+hr.thick{
+    border: 2px solid black;
+}
+
+.nav-item{
+    color: black;
+}
+/*Um die Unterstreichung bei Links zu verhindern*/
+a {
+    text-decoration: none; 
+}
+
+/*Damit die Bootstrapicons die selbe Farbe wie die Links haben*/
+.bi{
+    color: black;
+}
+/*Damit das Bootstrapicon, das ausgewählt, bzw. über das mit der Maus gefahren wird, weiß und dicker hervorgehoben wird*/
+.bi:hover,
+.bi:active,
+.bi:focus{
+    color:white;
+    font-weight: bold;
+}
+/*Damit der Link, der ausgewählt, bzw. über den mit der Maus gefahren wird, hervorgehoben wird*/
+.nav-item:hover,
+.nav-item:active,
+.nav-item:focus {
+  font-weight: bold;
+}

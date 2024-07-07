@@ -1,0 +1,58 @@
+
+ <div>
+  <!--Der Button zum Aufklappen/Einklappen der Sidebar-->
+  <button class="btn btn-primary" (click)="clickEvent()"><b>{{chevron}}</b></button>
+    <div class="content" *ngIf="toggleStatusSidebar">
+      <div class="bg-light border-end" id="sidebar-wrapper" >
+            <div class="sidebar-heading">Springe zu </div>
+            <div class="list-group list-group-flush overflow-auto">
+              <!--Hauptseite-->
+              <a routerLink="/" class="list-group-item list-group-item-action list-group-item-primary">Hauptseite</a>
+              <!--Hauptseite Unterpunkte-->
+              <div *ngIf="page === 'mainpage'">
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('funktionWebsite')">Was ist der Gläserne Fußabdruck?</a>
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('klima3000')">Klima3000</a>
+                <a  class="list-group-item list-group-item-action list-group-item-light" (click)="onClick('treibhausgase')">Was sind Treibhausgase?</a>
+                <a  class="list-group-item list-group-item-action list-group-item-light" (click)="onClick('weitereInfo')">Weitere Informationen</a>
+              </div>
+              
+              <!--Überblick-->
+              <a routerLink="/overview" class="list-group-item list-group-item-action list-group-item-primary">Überblick</a>
+              <!--Überblick Unterpunkte-->
+              <div *ngIf="page === 'overview'">
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('factsOverview')">Fakten</a>
+              </div>
+              <div *ngIf="page === 'overview'">
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('topTenAll')">Top 10</a>
+              </div>
+              <div *ngIf="page === 'overview'">
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('tableAll')">Tabelle aller Emissionsproduzenten</a>
+              </div>
+              
+              <!--Firmen--> 
+              <a routerLink="/company" class="list-group-item list-group-item-action list-group-item-primary">Firmen</a>
+              <!--Firmen Unterpunkte-->
+              <div *ngIf="page === 'company'">
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('factsCompany')">Fakten</a>
+                <a class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('topTenCompanies')">Top 10 Emissionsproduzenten</a>
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('tableCompany')">Tabelle aller Firmen</a>
+              </div>
+             
+              <!--Länder--> 
+              <a routerLink="/country" class="list-group-item list-group-item-action list-group-item-primary">Länder</a>
+              <!--Länder Unterpunkte-->
+              <div *ngIf="page === 'country'">
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('factsCountry')">Fakten</a>
+                <a class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('topTenCountries')">Top 10 Emissionsproduzenten</a>
+                <a  class="list-group-item list-group-item-action list-group-item-light"  (click)="onClick('tableCountry')">Tabelle aller Länder</a>
+              </div>
+              
+              <!--Impressum-->
+              <a routerLink="/impressum" class="list-group-item list-group-item-action list-group-item-primary">Impressum</a>
+              
+              <!--Datenschutz-->
+              <a routerLink="/legal" class="list-group-item list-group-item-action list-group-item-primary">Datenschutz</a>
+            </div>
+      </div>
+  </div>
+ </div>

@@ -1,0 +1,64 @@
+
+.content { 
+  margin:10px; 
+
+}
+
+  .sidebar {
+    top: 100px;
+    position: fixed;
+    
+  }
+
+  .cookie{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color: green;
+    color: #f2f2f2;
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .sidebar {
+      opacity: 0.1;
+      z-index: 10;
+    
+    }
+    .toggled{
+      opacity: 1 !important;
+    }
+
+    .cookie{
+      font-size: small;
+    }
+
+    .cookie .btn{
+      font-size: small;
+      margin-right: 5pt;
+      margin-left:5pt;
+    }
+
+    .cookie .h4{
+      font-size: medium;
+    }
+
+    .content { 
+      margin:5px; 
+    
+    }
+  }
+
+
+  .mobileContent{
+    backdrop-filter: brightness(60%);
+    filter:brightness(60%);
+  }
+  
+  
+  .backgroundGreen {
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  

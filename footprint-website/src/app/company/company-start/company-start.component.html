@@ -1,0 +1,125 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class=" text-center col-md-6">
+        <img src="assets/company.png" class="img-fluid " alt="K.I. Bild Firma">
+        </div> 
+  </div><!--Ende von row-->
+</div><!--Ende von container-fluid-->
+
+<div class="container-fluid" > 
+   <div class="row">
+        <div class="col" id="factsCompany">
+            <h2> Fakten zur Emission von Firmen </h2>
+            <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+            
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+            
+            Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer</p>
+            <br>
+        </div>
+   </div><!--Ende von row-->
+   <div class="row" id="topTenCompanies">
+        <div class="col bg-light mt-3 mb-3">
+            <h2> Top Ten der CO<sub>2</sub> verursachenden Firmen</h2>
+            <p>Es folgt eine Übersicht der Top 10 der CO<sub>2</sub> verursachenden Firmen.</p>
+        </div>
+   </div><!--Ende von row-->
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>                
+                    <th class="text-center" scope="col">Platz</th>
+                    <th scope="col">Name</th>
+                    <th class="text-center" scope="col">Totale Emissionen</th>
+                    <th class="text-center" scope="col">Anzahl Mitarbeiter*Innen</th>
+                    <th scope="col">Unternehmenssitz</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let company of topCompaniestotalEM; index as i">
+                    <td class="text-center"><a>{{company.rankTotalEm}}</a></td>
+                    <td><a routerLink="details/{{company.name}}"><img src="{{company.logoLink}}" class="me-3" 
+                        style="width: 25px">{{company.name}}</a></td>
+                    <td class="text-center"><a>{{company.totalEm}}</a></td>
+                    <td class="text-center"><a>{{company.numberOfEmployees}}</a></td>
+                    <td><a>{{company.country}}</a></td>
+                </tr>
+            </tbody>
+       </table>
+    </div><!--Ende von table-->
+    <br>
+    <div class="row" id="tableCompany">
+       <div class="col">
+            <h2> Überblick über den CO<sub>2</sub>-Ausstoß von Firmen</h2>
+            <p>Folgende Tabelle stellt die CO<sub>2</sub>-Emissionen von Ländern dar.</p>
+       </div>
+    </div><!--Ende von row-->
+    <div class="row">
+        <div class="col-md-5">
+            <form>
+                <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Bitte nutzen Sie das Suchfeld zur Suche nach bestimmten Firmen:</label>
+                <input id="table-filtering-search" class="form-control" type="text" placeholder="Suchen nach" [formControl]="filter" (keyup)="onSubmit()" />
+            </form>
+        </div>
+        <div class="col-md-7">
+            <form>
+                <p>Ordnen nach </p>
+                <select [(ngModel)]="selectedArrangeType" (change)="onSubmit()" name="sortTypes">  
+                    <option disabled>Wonach ordnen?</option>   
+                    <option *ngFor="let type of arrangeTypes">{{type}}</option>  
+                </select> 
+            </form>
+        </div>
+    </div><!--Ende von row-->
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Platz: {{selectedArrangeType}}</th>
+                    <th scope="col">Name</th>
+                    <th class="text-center" scope="col">Totale Emissionen</th>
+                    <th class="text-center" scope="col">Anzahl Mitarbeiter*Innen</th>
+                    <th scope="col">Unternehmenssitz</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let company of companies$ | async; index as i">
+                    <td class="text-center"><a *ngIf="selectedArrangeType ==='Totale Emissionen'">   {{company.rankTotalEm}}</a>
+                        <a *ngIf="selectedArrangeType ==='Anzahl Mitarbeiter*Innen'">   {{company.rankNumberOfEmployees}}</a></td>
+                    <td><a routerLink="details/{{company.name}}"><img src="{{company.logoLink}}" class="me-3" 
+                        style="width: 25px"><ngb-highlight [result]= "company.name" [term] = "filter.value"></ngb-highlight></a></td>
+                    <td class="text-center"><a>{{company.totalEm}}</a></td>
+                    <td class="text-center"><a>{{company.numberOfEmployees}}</a></td>
+                    <td><a><ngb-highlight [result]= "company.country" [term] = "filter.value"></ngb-highlight></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div><!--Ende von table-responsive-->
+    <nav aria-label="Tabellenseitennavigation">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" role="button" (click)="previousPage()">Zurück</a></li>
+            <li class="page-item" *ngFor="let page of pageNumber; index as i"><a class="page-link" role="button" (click)="pageChange(page)">{{page}}</a>
+            </li>
+            <li class="page-item"><a class="page-link" role="button" (click)="nextPage()">Weiter</a></li>
+        </ul>
+    </nav>
+    <form>
+        <div class="row">
+            <div class="col-md-5">
+                <label class="page-item me-4">Springen zu:</label>
+                <input id="goTo" type="text" [formControl]="goTo" (keydown.enter)="pageChange(goTo.value)" maxlength="6" size="6">
+            </div>
+            <div class="mb-3 col-md-7">
+                <label class="me-4">Zeilenanzahl: </label>
+                <select [(ngModel)]="pageSizeSelected" name="pageSizeChange" (change)="setPageSize()">  
+                    <option *ngFor="let number of pageSizeChoice">{{number}}</option>  
+                </select> 
+            </div>
+        </div><!--Ende von row-->
+    </form>
+</div><!--Ende von container-fluid-->
+
+

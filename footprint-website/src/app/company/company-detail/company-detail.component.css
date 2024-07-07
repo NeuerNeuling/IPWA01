@@ -1,0 +1,15 @@
+/*Die CSS-Klasse für das Bild in der Card-Komponente */
+.imageCard{
+    max-width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .imageCard{
+        max-width: 200px;
+        margin-top: 10pt;
+    }
+}

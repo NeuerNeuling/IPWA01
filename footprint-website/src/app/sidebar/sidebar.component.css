@@ -1,0 +1,12 @@
+/*Anpassungen für die mobile Ansicht*/
+@media only screen and (max-width: 600px) {
+    a {
+        font-size: 16px;
+    }
+
+    .content{
+        overflow: auto;
+        max-height: 300px;
+    }
+}
+

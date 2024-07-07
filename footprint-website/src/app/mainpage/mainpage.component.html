@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="row">
+        <div class="col-sm-12 col-lg-4">
+          <h1 class="text-center mt-3 mb-3"> Gläserne Fußabdruck </h1>
+          <h2>weil wir nach dem Motto leben:</h2>
+          <blockquote class="blockquote mt-3">
+              <p class="mb-0">"Lerne von der Geschwindigkeit der Natur: ihr Geheimnis ist Geduld."</p>
+              <footer class="blockquote-footer mt-1">Ralph Waldo Emerson</footer>
+          </blockquote>
+        </div>
+        <div class="col-sm-1"></div>
+        <!--Carousel für den optischen Eindruck der mainpage-->
+        <div class="col-sm-10 col-lg-7" >
+          <ngb-carousel>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img class="d-block w-90 slidepicture" src="assets/forest.png" alt="K.I. generiertes Bild von einem Wald" />
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img class="d-block w-90 slidepicture" src="assets/forest2.png" alt="K.I. generiertes Bild von einem Wald" />
+            </div>
+          </ng-template>
+        </ngb-carousel>
+        </div>
+  </div> <!--Ende von row-->
+</div><!--Ende von container-fluid-->
+
+  <div class="container-fluid" >
+    <div class="row" id="funktionWebsite">
+      <div class="col mt-lg-3 mt-1">
+        <h2>Was ist der Gläserne Fußabdruck?</h2>
+        <p>Diese Website dient dazu Daten über die CO<sub>2</sub>-Emissionen von Ländern und Firmen für alle frei zugänglich zu machen.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae iusto voluptate placeat delectus perspiciatis inventore ducimus architecto et minima reiciendis necessitatibus laudantium doloremque, cupiditate dignissimos, consectetur illo. Ab, corrupti culpa? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero iste dolorem id non tempora maiores consequatur ullam unde explicabo minima, quos totam expedita magnam eaque, fuga nihil praesentium suscipit odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi nobis alias minima id eaque qui ipsum eos minus quibusdam recusandae libero laudantium, error ducimus corrupti? Numquam, officia. Nesciunt, dolor. Vero.</p>
+      </div>
+    </div><!--Ende von row-->
+    <div class="row" id="klima3000">
+      <div class="col mt-lg-3 mt-1 bg-light">
+        <h2>Klima3000</h2>
+        <p>Wir sind eine NGO, die sich zur Aufgabe gemacht hat Daten über CO<sub>2</sub>-Emissionen von Ländern und Firmen weltweit zu sammeln und für alle frei zugänglich zu machen.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae iusto voluptate placeat delectus perspiciatis inventore ducimus architecto et minima reiciendis necessitatibus laudantium doloremque, cupiditate dignissimos, consectetur illo. Ab, corrupti culpa? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero iste dolorem id non tempora maiores consequatur ullam unde explicabo minima, quos totam expedita magnam eaque, fuga nihil praesentium suscipit odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi nobis alias minima id eaque qui ipsum eos minus quibusdam recusandae libero laudantium, error ducimus corrupti? Numquam, officia. Nesciunt, dolor. Vero.</p>
+      </div>
+    </div><!--Ende von row-->
+  <div class="row">
+    <div class="col mt-lg-3 mt-1">
+      <h2> Unsere Beweggründe:</h2>
+      <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat ut autem aspernatur eaque, voluptas quam dolorum placeat eveniet blanditiis voluptatibus! Vel, unde! Cupiditate amet autem quos eos excepturi animi. Vel? </p>
+    </div><!--Ende von row-->
+
+    <div class="row" id="treibhausgase">
+        <!--Wenn Cookies erlaubt werden, ist das Video sichtbar-->
+        <div *ngIf="cookieService.getAllCookiesAccepted(); else NoVideo">
+          <div class="ratio ratio-16x9 mb-lg-3 mb-1 mt-1 start-50 translate-middle-x" style="max-width: 600px;">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/eI8L3wV3pBo" title="UBA-Erklärfilm: Treibhausgase und Treibhauseffekt" frameborder="0"  allowfullscreen></iframe>
+          </div>
+        </div>
+        <!--Wenn die Cookies nicht erlaubt werden, ist das Video durch eine Textnachricht ersetzt und einen Button ersetzt. Der Button ermöglicht es, die Cookies nachträglich zu erlauben-->
+        <ng-template #NoVideo>
+          <div class="card col-12 m-1 mb-lg-3 mt-1">
+            <div class="card-body text-center">
+              <h5 class="card-title">Bitte Cookies akzeptieren</h5>
+              <p class="card-text">Bitte lassen Sie alle Cookies zu, um dieses Video zu sehen.</p>
+              <a class="btn btn-primary" (click)="cookiesAccept()">Alle Cookies zulassen</a>
+            </div>
+          </div><!--Ende von card-->
+        </ng-template>
+    </div><!--Ende von row-->
+    <div class="row">
+      <div class="col mb-1 mt-3 bg-light">
+        <h2 >Was sind Treibhausgase?</h2>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+
+          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+          
+          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+          
+          Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
+          
+          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
+          
+          At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.   
+          
+          Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.   
+          
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+          
+          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+          
+          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+          
+          Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.
+          </p>
+    </div>
+  </div><!--Ende von row-->
+  <div class="row" id="weitereInfo">
+    <div  class="col mb-1" >
+      <h2>Weitere Informationen</h2>
+      <br>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi iusto, enim delectus dignissimos, soluta consectetur earum laudantium provident et officia aperiam commodi esse optio ad magnam ipsa reiciendis aliquid doloribus. </p>
+    </div>
+  </div><!--Ende von row-->
+</div><!--Ende von container-fluid-->
+

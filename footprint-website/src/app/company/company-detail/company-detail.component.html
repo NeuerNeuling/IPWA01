@@ -1,0 +1,24 @@
+<!--Für die Detailansicht wurde aus optischen Gründen Card als Container genutzt-->
+<div class="card text-center">
+
+  <div class="card-header">
+    <h1>{{ company.name }}</h1>
+  </div><!--Ende von card-header-->
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-6 text-start">
+          <p class="card-text ">{{ company.description }}</p>
+          <br>
+          <p class="card-text"><b>totaler CO<sub>2</sub> Ausstoß: {{ company.totalEm }}</b></p>
+          <br>
+          <p class="card-text">Anzahl an Mitarbeiter: {{ company.numberOfEmployees }}</p>
+          <br>
+          <p class="card-text"><b>Kontinent: {{ company.country }}</b></p>
+      </div>
+      <div class="col-lg-6">
+        <img class="imageCard" [src]="company.logoLink" >
+      </div>
+    </div><!--Ende von row-->
+  </div><!--Ende von card-body-->
+</div><!--Ende von card-->

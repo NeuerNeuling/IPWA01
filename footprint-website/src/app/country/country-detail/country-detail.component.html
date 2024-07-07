@@ -1,0 +1,27 @@
+<!--Für die Detailansicht wurde aus optischen Gründen Card als Container genutzt-->
+<div class="card text-center">
+    <div class="card-header">
+      <h1>{{ country.name }}</h1>
+    </div>
+    <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6 text-start">
+            <p class="card-text ">{{ country.description }}</p>
+            <br>
+            <p class="card-text"><b>totaler CO<sub>2</sub> Ausstoß: {{ country.totalEm }}</b></p>
+            <br>
+            <p class="card-text"><b>pro Kopf CO<sub>2</sub> Ausstoß: {{ country.perHeadEm }}</b></p>
+            <br>
+            <p class="card-text"><b>Kontinent: {{ country.continent }}</b></p>
+          </div>
+          <div class="col-lg-6">
+            <img class="imageCard" [src]="country.logoLink" >
+          </div>
+    </div>
+</div><!--Ende von card-->
+      
+
+
+
+
+

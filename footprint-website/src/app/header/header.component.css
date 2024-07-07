@@ -1,0 +1,35 @@
+/*CSS-Klasse für die Navbar*/
+.navbar{
+    /*Für optische Gründe, fügt einen kleinen Schatteneffekt hinzu*/
+    box-shadow: 0 4px 10px rgba(22, 28, 45, 0.1), 0 2px 4px 3px rgba(22, 28, 45, 0.1)!important;
+    transform: translate3d(0, -5px, 0);
+    background-color: #96e1a1;
+    padding: 5px 5px;
+}
+
+/*Damit der Link, der ausgewählt, bzw. über den mit der Maus gefahren wird, dick hervorgehoben wird*/
+ .nav-item:hover,
+  .nav-item:active,
+  .nav-item:focus {
+    font-weight: bold;
+  }
+
+
+/*Damit der Link zur mainpage, der ausgewählt, bzw. über den mit der Maus gefahren wird, weiß und dick hervorgehoben wird*/
+  .navbar .navbar-brand:hover,
+  .navbar .navbar-brand:active,
+  .navbar .navbar-brand:focus {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .navbar-nav  li  .dropdown-menu {
+    background-color: #96e1a1;
+  }
+
+
+@media only screen and (max-width: 600px) {
+    .logo {
+        height:50px;
+    }
+  }

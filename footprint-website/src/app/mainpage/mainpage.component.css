@@ -1,0 +1,10 @@
+/*Für die Bilder in der Bootstrap Carousel-Komponente*/
+.slidepicture{
+ height:400px;
+}
+
+@media only screen and (max-width: 600px) {
+    .slidepicture {
+        height:150px;
+    }
+  }

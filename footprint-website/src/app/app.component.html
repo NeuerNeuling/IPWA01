@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+   <div class="row">
+      <!--ngStyle wird nur auf die Sidebar angewandt, da in der Fallstudie lediglich die Position der Sidebar geändert werden sollte-->
+      <div [ngStyle]="{'direction': directionControlService.textDirection}">
+        <app-sidebar class="sidebar" (togglerEvent) ="toggleStatus = !toggleStatus" [toggleStatusSidebar]="toggleStatus" 
+        [ngClass]="toggleStatus && (directionControlService.textDirection =='ltr') ? 'col-md-3 col-lg-2  toggled' : 'col-md-1 col-lg-1'" 
+        [ngClass]="isMobile ?  'backgroundGreen' : ''"></app-sidebar>
+      </div>
+      <!--Ende von app-sidebar-->
+      <!--Anfang des router-outlets-->
+      <!--Die Verwendung von class.col-lg-11 ist ein Workaround damit beim erstmaligen Laden der Website bereits der ContentBereich eingerückt ist.-->
+        <div 
+        [class.col-lg-11] ="!toggleStatus"
+        [class.col-md-11] ="!toggleStatus"
+        [class.offset-md-1]="!toggleStatus && directionControlService.textDirection =='ltr'"
+        [ngClass]="toggleStatus && directionControlService.textDirection === 'ltr' ? 'col-md-9 col-lg-10 d-md-block offset-md-3 offset-lg-2' : ' offset-md-1 offset-lg-1 col-md-11 col-lg-11 col-xs-11'" 
+        [ngClass]="toggleStatus && directionControlService.textDirection === 'rtl' ? 'col-md-9 col-lg-10 d-md-block' : ' col-md-11 col-lg-11 col-xs-11'"
+        [ngClass] ="isMobile && toggleStatus ? ' mobileContent' :  ''"
+        [ngStyle]="{'direction':'ltr'}">
+          <div class="content">
+                <router-outlet></router-outlet>
+          </div>
+        </div>
+      <!--Ende von router-outlet-->
+    </div> <!--Ende von row-->
+  </div><!--Ende von container-fluid-->
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" [ngClass] ="isMobile && toggleStatus ? ' mobileContent' :  ''">
+            <app-footer></app-footer>
+        </div>
+    </div><!--Ende von row-->
+</div><!--Ende von container-fluid-->
+
+<!--Cookie Banner-->
+<div *ngIf="!cookieService.getAllCookiesAccepted() && !cookieService.getNotAccepted()" class="container-fluid cookie">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h4 class="m-1 m-lg-3">Hinweise zu Cookies und personenbezogenen Daten</h4>
+        <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima temporibus non repellat architecto est quam fuga deserunt itaque, esse modi commodi deleniti quae quidem, id amet doloremque provident, expedita corporis. </p>
+        
+        <button class="btn btn-primary mb-1 mb-lg-3 me-lg-5" (click)="cookieService.setNotAccepted()">Keine Cookies zulassen</button>
+
+        <button class="btn btn-primary mb-1 mb-lg-3 ms-lg-5" (click)="cookieService.setAllCookiesAccepted()">Alle Cookies zulassen</button>
+      </div>
+    </div><!--Ende von row-->
+</div><!--Ende von container-fluid des cookies-->
+

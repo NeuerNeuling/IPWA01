@@ -1,0 +1,126 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+            <img src="assets/overview.png" class="img-fluid" alt="K.I. Bild"> 
+        </div>
+  </div><!--Ende von row-->
+</div><!--Ende von container-fluid-->
+<div class="container-fluid">
+    <div class="row" id="factsOverview">
+        <div class="col">
+            <h2>Fakten zu CO<sub>2</sub>-Emissionen</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora aspernatur asperiores praesentium. Ducimus aut minima quidem numquam! Consectetur tempora sint illo, vel facere quae nulla at a tenetur tempore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eveniet, placeat commodi deleniti cumque porro eum perferendis alias provident dolores accusantium nihil temporibus beatae eius aut tenetur dolorum ducimus at.</p>
+        </div>
+    </div><!--Ende von row-->
+
+    <div class="row" id="topTenAll">
+        <div class="col bg-light mt-3 mb-3">
+            <h2> Top Ten der weltweiten CO<sub>2</sub>-Emissionsverursacher</h2>
+            <br>
+            <p>Es folgt eine Top 10 der weltweiten CO<sub>2</sub>-Emissionsverursacher.</p>
+        </div>
+    </div><!--Ende von row-->
+
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>                
+                    <th class="text-center" scope="col">Platz</th>
+                    <th scope="col">Name</th>
+                    <th class="text-center" scope="col">Totale Emissionen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let object of topTableObjecttotalEM; index as i">
+                    <td class="text-center"><a>{{object.rankTotalEm}}</a></td>
+                    <td><a [routerLink]="[]" (click) ="onClickRedirect(object.name, object.type)"><img src="{{object.logoLink}}" class="me-3" 
+                    style="width: 25px">{{object.name}}</a></td>
+                    <td class="text-center"><a>{{object.totalEm}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div><!--Ende von table-->
+    <br>
+    <div class="row " id="tableAll">
+        <div class="col">
+            <h2>CO<sub>2</sub>-Emissionen von Ländern und Firmen im Vergleich</h2>
+            <p>Folgende Tabelle stellt die CO<sub>2</sub>-Emissionen von Ländern und Firmen dar.  </p>
+        </div>
+    </div><!--Ende von row-->
+    <div class="row">
+        <div class="col-md-5">
+            <form>
+                <label for="table-filtering-search" class="form-label">Bitte nutzen Sie das Suchfeld zur Suche nach bestimmten Ländern oder Firmen:</label>
+                <input id="table-filtering-search" class="form-control" type="text" placeholder="Suchen nach" [formControl]="filter" (keyup)="onSubmit()">
+            </form>
+        </div>
+        <div class="col-md-7">
+            <form>
+                <!--Zur feingranularen Zerlegung der col wurde eine nested row verwendet -->
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="mb-3 col-md-4">
+                        <p>Filtern nach: </p>
+                        <div class="checkbox">
+                            <label>
+                                <input name="country" [(ngModel)]="filterStats[0]" type="checkbox" (change)="onSubmit()"> Länder anzeigen
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input name="company" [(ngModel)]="filterStats[1]" type="checkbox" (change)="onSubmit()"> Firmen anzeigen
+                            </label>    
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="mb-3 col-md-6">
+                        <p>Ordnen nach: </p>
+                        <select [(ngModel)]="selectedArrangeType" name="sortTypes" (change)="onSubmit()">  
+                            <option disabled>Wonach ordnen?</option>  
+                            <option *ngFor="let type of arrangeTypes">{{type}}</option>  
+                        </select> 
+                    </div>
+                </div><!--Ende von nested row--> 
+            </form>
+        </div><!--Ende von row-->
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Platz</th>
+                    <th scope="col">Name</th>
+                    <th class="text-center" scope="col">Totale Emissionen</th>
+              
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let object of tableObjects$ | async; index as i">
+                    <td class="text-center"><a>{{object.rankTotalEm}}</a></td>
+                    <td><a [routerLink]="[]" (click) ="onClickRedirect(object.name, object.type)"><img src="{{object.logoLink}}" class="me-3" style="width: 25px"><ngb-highlight [result]= "object.name" [term] = "filter.value"></ngb-highlight></a></td>
+                    <td class="text-center"><a>{{object.totalEm}}</a></td>
+            </tbody>
+        </table>
+    </div><!--Ende von table-->
+    <nav aria-label="Tabellenseitennavigation"> 
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" role="button" (click)="previousPage()">Zurück</a></li>
+            <li class="page-item" *ngFor="let page of pageNumber; index as i"><a class="page-link" role="button" (click)="pageChange((page))">{{page}}</a></li>
+            <li class="page-item"><a class="page-link" role="button" (click)="nextPage()">Weiter</a></li>
+        </ul>
+    </nav>
+    <form>
+        <div class="row">
+            <div class="col-md-5">
+                <label class="page-item me-4">Springen zu:</label>
+                <input id="goTo" type="text" [formControl]="goTo" (keydown.enter)="pageChange(goTo.value)" maxlength="6" size="6">
+            </div>
+            <div class="mb-3 col-md-7">
+                <label class="me-4">Zeilenanzahl: </label>
+                <select [(ngModel)]="pageSizeSelected" name="pageSizeChange" (change)="setPageSize()">  
+                    <option *ngFor="let number of pageSizeChoice">{{number}}</option>  
+                </select> 
+            </div>
+        </div><!--Ende von row-->
+    </form>
+</div><!--Ende von container-fluid-->
