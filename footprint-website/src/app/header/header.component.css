@@ -14,7 +14,7 @@
     font-weight: bold;
   }
 
-/*Damit der Link zur aktiven Seite dick hervorgehoben wird*/
+/*Damit der Link der aktiven Seite dick hervorgehoben wird*/
   .active{
     font-weight: bold;
   }
