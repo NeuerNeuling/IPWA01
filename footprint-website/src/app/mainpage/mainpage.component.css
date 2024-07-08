@@ -1,10 +1,17 @@
 /*Für die Bilder in der Bootstrap Carousel-Komponente*/
 .slidepicture{
- height:400px;
+ max-height: 400px;
 }
 
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 767px) {
     .slidepicture {
-        height:150px;
+        max-height: 300px;
+    }
+  }
+
+@media only screen and (max-width: 575px) {
+    .slidepicture {
+        max-height:200px;
     }
   }

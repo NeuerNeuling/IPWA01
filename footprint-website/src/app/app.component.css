@@ -21,8 +21,22 @@
     z-index: 3;
   }
 
+  @media only screen and (max-width: 767px) {
+    .mobileContent{
+      backdrop-filter: brightness(60%);
+      filter:brightness(60%);
+    }
+    .sidebar {
+      opacity: 0.1;
+      z-index: 10;
+    
+    }
+    .toggled{
+      opacity: 1 !important;
+    }
+  }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 575px) {
     .sidebar {
       opacity: 0.1;
       z-index: 10;

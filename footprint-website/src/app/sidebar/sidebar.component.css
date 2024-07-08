@@ -1,24 +1,35 @@
+@media only screen and (max-width: 992px) {
+    a {
+        font-size: 20px;
+    }
+
+    .content{
+        overflow: auto;
+        max-height: 500px;
+    }
+}
+
 /*Anpassungen für die mobile Ansicht*/
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 767px) {
     a {
         font-size: 18px;
     }
 
     .content{
         overflow: auto;
-        max-height: 350px;
+        max-height: 450px;
     }
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 575px) {
     a {
         font-size: 16px;
     }
 
     .content{
         overflow: auto;
-        max-height: 300px;
+        max-height: 400px;
     }
 }
 

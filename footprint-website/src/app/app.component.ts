@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, AfterContentInit {
   ngOnInit(){
     this.toggleStatus=false;
     
-   (window.innerWidth <= 600) ? this.isMobile =true : this.isMobile =false;
+   (window.innerWidth <= 767) ? this.isMobile =true : this.isMobile =false;
   }
 
   //Fail-safe
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, AfterContentInit {
  */ 
  @HostListener('window:resize', ['$event'])
   onResize(event:any) {
-    (event.target.innerWidth <= 600) ? this.isMobile =true : this.isMobile =false;
+    (event.target.innerWidth <= 767) ? this.isMobile =true : this.isMobile =false;
   }
  
 

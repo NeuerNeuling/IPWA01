@@ -79,7 +79,8 @@ const routes: Routes = [
 
 
 @NgModule({
-  /*scrollPositionRestoration ist enabled um beim Wechsel auf Unterseiten die
+  /*
+  *scrollPositionRestoration ist enabled um beim Wechsel auf Unterseiten die
   *Scrollposition zurückzusetzen
   */
   imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled', anchorScrolling: 'disabled'})],

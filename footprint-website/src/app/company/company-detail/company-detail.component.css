@@ -7,7 +7,15 @@
     width: 50%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 767px) {
+    .imageCard{
+        max-width: 250px;
+        margin-top: 10pt;
+    }
+}
+
+
+@media only screen and (max-width: 575px) {
     .imageCard{
         max-width: 200px;
         margin-top: 10pt;
